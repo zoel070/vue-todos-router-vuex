@@ -18,6 +18,7 @@
 <script>
 export default {
     created() {
+        console.log('created')
         this.handleChangeSelect();
     },
     watch: {
@@ -33,7 +34,6 @@ export default {
     },
     methods: {
         handleChangeSelect(value) {
-            console.log("🚀 ~ file: TheFooter.vue:30 ~ handleChangeSelect ~ value:", value)
             this.$store.commit('changeSelect', value)
         },
         deleteDone() {

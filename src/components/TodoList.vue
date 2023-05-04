@@ -4,7 +4,7 @@
         <label for="toggle-all">Mark all as complete</label>
         <ul class="todo-list">
             <li :class="['todo', { completed: todo.completed },
-                { editing: editTodo === todo }]" v-for="(todo) in showTodos" :key="todo.title">
+                { editing: editTodo === todo }]" v-for="todo, index in showTodos" :key="index">
                 <div class="view">
                     <input class="toggle" type="checkbox" v-model="todo.completed" />
                     <label @dblclick="handleEdit(todo)">{{ todo.title }}</label>
