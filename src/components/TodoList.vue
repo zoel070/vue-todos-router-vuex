@@ -26,6 +26,9 @@ export default {
         }
     },
     computed: {
+        todos() {
+            return this.$store.state.todos;
+        },
         select() {
             return this.$store.state.select;
         },
@@ -34,7 +37,7 @@ export default {
         },
         allCompleted: {
             get: function () {
-                return this.$store.getters.allCompleted;
+                return this.todos.every(data => data.completed);
             },
             set: function (value) {
                 this.$store.commit('setAllCompleted', value);

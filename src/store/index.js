@@ -31,7 +31,7 @@ const store = new Vuex.Store({
         showTodos: (state) => {
             let select = state.select;
             return state.todos.filter(data => {
-                if (select === 'all') {
+                if (select === 'all' || select == undefined) {
                     return true
                 } else if (select === 'active') {
                     return !data.completed
@@ -42,8 +42,9 @@ const store = new Vuex.Store({
         }
     },
     mutations: {
-        changeSelect(state, select) {
-            state.select = select
+        changeSelect(state, value) {
+            console.log("🚀 ~ file: index.js:46 ~ changeSelect ~ value:", value)
+            state.select = value
         },
         addTodo(state, todo) {
             state.todos.push(todo)
